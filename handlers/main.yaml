@@ -1,0 +1,9 @@
+---
+
+- name: Restart waagent service
+  service:
+    name: "{{ waagent_service }}"
+    state: restarted
+  when: >
+    waagent_service_started is not defined or
+    not waagent_service_started.changed
