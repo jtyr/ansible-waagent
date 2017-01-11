@@ -69,10 +69,13 @@ waagent_pkg: WALinuxAgent
 waagent_service: waagent
 
 # Whether to install EPEL YUM repo
-waagent_epel_install: no
+waagent_epel_install: "{{ yumrepo_epel_install | default(true) }}"
 
 # EPEL YUM repo URL
 waagent_epel_yumrepo_url: "{{ yumrepo_epel_url | default('https://dl.fedoraproject.org/pub/epel/$releasever/$basearch/') }}"
+
+# EPEL YUM repo GPG key
+waagent_epel_yumrepo_gpgkey: "{{ yumrepo_epel_gpgkey | default('https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-$releasever') }}"
 
 # Extra EPEL YUM repo params
 waagent_epel_yumrepo_params: "{{ yumrepo_epel_params | default({}) }}"

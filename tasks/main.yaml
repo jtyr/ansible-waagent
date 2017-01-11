@@ -5,7 +5,7 @@
     name: epel
     description: EPEL YUM repo
     baseurl: "{{ waagent_epel_yumrepo_url }}"
-    gpgcheck: no
+    gpgkey:  "{{ waagent_epel_yumrepo_gpgkey }}"
     params: "{{ waagent_epel_yumrepo_params }}"
   when: waagent_epel_install
   tags:
