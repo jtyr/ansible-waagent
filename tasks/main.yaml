@@ -7,7 +7,7 @@
     baseurl: "{{ waagent_epel_yumrepo_url }}"
     gpgkey:  "{{ waagent_epel_yumrepo_gpgkey }}"
     params: "{{ waagent_epel_yumrepo_params }}"
-  when: waagent_epel_install
+  when: waagent_epel_install == true
   tags:
     - waagent_pkg
 
